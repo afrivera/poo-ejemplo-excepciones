@@ -8,4 +8,15 @@ public class Calculadora {
         }
         return numerador / (double)divisor;
     }
+
+    public double dividir(String numerador, String divisor) throws DivisionPorCeroException, FormatoNumeroException {
+        try {
+            int num = Integer.parseInt(numerador);
+            int div = Integer.parseInt(divisor);
+            return this.dividir(num, div);
+        }catch (NumberFormatException nfe){
+            throw new FormatoNumeroException("Debe Ingresar un numero en el numerador y divisor");
+        }
+
+    }
 }
